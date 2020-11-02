@@ -37,8 +37,7 @@ def HH (v, m, n, h, t) :
     n_tau = tau ( an(vp), bn(vp))
 
     hp  = (( h - h_inf ) * math.exp( - dt / h_tau ) ) + h_inf
-    np  = (( n - n_inf ) * math.exp( - dt / n_tau ) ) + n_inf
-   
+    np  = (( n - n_inf ) * math.exp( - dt / n_tau ) ) + n_inf   
     return (vp, mp, np, hp, tp)
 
 vs = []
@@ -52,13 +51,11 @@ b = mnh( am(v0), bm(v0) )
 c = mnh( an(v0), bn(v0) )
 d = mnh( ah(v0), bh(v0) )
 e =  0.0 
-
 vs . append (a)
 ms . append (b)
 ns . append (c)
 hs . append (d)
 ts . append (e)
-
     
 for  i in ( range (1 ,3000)):
     a, b, c, d, e = HH(vs[-1],ms[-1],ns[-1],hs[-1],ts[-1])
