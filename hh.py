@@ -26,16 +26,16 @@ def bh (v) : return (   1             / ( math.exp (-0.1*(v + 28)) + 1 ) )
 def mnh  (a , b) : return ( a /( a + b ) )
 def tau  (a , b) : return ( (1 /phi) * (1 /( a + b )) )
 
-def HH (v, m, n, h, t) :    
-    
+def HH (v, m, n, h, t) :        
     vp = v + (dt * (1 / cm) * ( iap - ( ina (m, h, v) + ik (n, v) + il (v))))
     tp = t + dt
-    mp =    mnh ( am(vp), bm(vp))
+    
+    mp    = mnh ( am(vp), bm(vp))
     h_inf = mnh ( ah(vp), bh(vp))
     h_tau = tau ( ah(vp), bh(vp))
     n_inf = mnh ( an(vp), bn(vp))
     n_tau = tau ( an(vp), bn(vp))
-
+    
     hp  = (( h - h_inf ) * math.exp( - dt / h_tau ) ) + h_inf
     np  = (( n - n_inf ) * math.exp( - dt / n_tau ) ) + n_inf   
     return (vp, mp, np, hp, tp)
@@ -45,7 +45,6 @@ ms = []
 ns = []
 hs = []
 ts = []
-
 a = v0
 b = mnh( am(v0), bm(v0) )
 c = mnh( an(v0), bn(v0) )
