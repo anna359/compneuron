@@ -5,11 +5,11 @@ ena = 55
 gna = 35
 ek = -90
 gk = 9
-el = 65
+el = -65
 gl = 0.1
 cm = 1
 phi= 5
-iap= 0.2
+iap= 2
 v0= -65
 
 def ina(m, h, v): return ( gna * ( m ** 3 )  * h * ( v - ena ) )
